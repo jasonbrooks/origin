@@ -10,12 +10,12 @@
 # %commit and %os_git_vars are intended to be set by tito custom builders provided
 # in the .tito/lib directory. The values in this spec file will not be kept up to date.
 %{!?commit:
-%global commit b4261e07eda19d9c42aa9d1c748c34f8cba09168
+%global commit d38d570224a5732583890670ab4efdca12c2994b
 }
 %global shortcommit %(c=%{commit}; echo ${c:0:7})
 # os_git_vars needed to run hack scripts during rpm builds
 %{!?os_git_vars:
-%global os_git_vars OS_GIT_COMMIT=b4261e07ed OS_GIT_VERSION=v4.1.0+b4261e0 OS_GIT_MAJOR=4 OS_GIT_MINOR=1+ OS_GIT_PATCH=0 ETCD_GIT_VERSION=v3.3.10 ETCD_GIT_COMMIT=27fc7e2 KUBE_GIT_VERSION=v1.13.4+b4261e07ed KUBE_GIT_COMMIT=41dc99c KUBE_GIT_MAJOR=1 KUBE_GIT_MINOR=13+ OS_GIT_TREE_STATE=clean
+%global os_git_vars OS_GIT_COMMIT=d38d570224 OS_GIT_VERSION=v0.0.1-1+d38d570 OS_GIT_MAJOR=0 OS_GIT_MINOR=0+ OS_GIT_PATCH=1 ETCD_GIT_VERSION=v3.3.10 ETCD_GIT_COMMIT=27fc7e2 KUBE_GIT_VERSION=v1.13.4+d38d570224 KUBE_GIT_COMMIT=41dc99c KUBE_GIT_MAJOR=1 KUBE_GIT_MINOR=13+ OS_GIT_TREE_STATE=clean
 }
 
 %if 0%{?skip_build}
@@ -54,7 +54,7 @@
 %global product_name OpenShift
 %endif
 
-%{!?version: %global version 0.0.1}
+%{!?version: %global version 4.1.0}
 %{!?release: %global release 1}
 
 Name:           %{package_name}
@@ -232,6 +232,9 @@ done
 %endif
 
 %changelog
+* Fri May 31 2019 Jason Brooks <jbrooks@redhat.com> 4.1.0-1
+- 
+
 * Fri May 31 2019 Jason Brooks <jbrooks@redhat.com> 0.0.1-1
 - test openshift pkg built with tito
 
